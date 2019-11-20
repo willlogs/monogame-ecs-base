@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,13 +10,18 @@ namespace Main
     /// </summary>
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        public static Scene.Scene curScene;
+        public static Game1 instance;
+        public static int pixelsPerUnit = 100;
         
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            instance = this;
         }
 
         /// <summary>
@@ -41,6 +47,36 @@ namespace Main
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            MakeTestScene();
+        }
+
+        private void MakeTestScene()
+        {
+            Texture2D balltxt = Content.Load<Texture2D>("ball");
+            curScene = new Scene.Scene();
+            Entity.Entity ent =
+                curScene.AddEntity(
+                    new Entity.Entity(
+                        Vector2.Zero,
+                        0.1f,
+                        name: "new object",
+                        tag: 0
+                    )
+                );
+
+            ent.AddComponent(
+                new Component.Rendering.Sprite(
+                    balltxt,
+                    ent,
+                    index: 0
+                )
+            );
+
+            ent.AddComponent(
+                new Component.Physics.RigidBodies.Rigidbody(
+                    ent    
+                )
+            );
         }
 
         /// <summary>
@@ -63,6 +99,7 @@ namespace Main
                 Exit();
 
             // TODO: Add your update logic here
+            curScene.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -76,6 +113,11 @@ namespace Main
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            Rendering.Renderer.Draw(spriteBatch);
+
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

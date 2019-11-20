@@ -9,6 +9,18 @@
     <Import_RootNamespace>Main</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\Colliders\CircleCollider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\Colliders\Collider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\RigidBodies\Rigidbody.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Rendering\Sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Transform\Transform2D.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IECSActor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rendering\Renderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Scene\Scene.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\ColiderSystem\CS.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\MathUtils.cs" />
   </ItemGroup>
 </Project>
