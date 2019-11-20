@@ -77,6 +77,13 @@ namespace Main
                     ent    
                 )
             );
+
+            ent.AddComponent(
+                new Component.Physics.Colliders.CircleCollider(
+                    ent,
+                    1f
+                )    
+            );
         }
 
         /// <summary>

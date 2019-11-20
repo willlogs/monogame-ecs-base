@@ -12,11 +12,8 @@ namespace Main.Component.Physics.Colliders
 
         public Collider(Entity.Entity attachee) : base(attachee) 
         {
-            rb = attachee.FindComponent<Main.Component.Physics.RigidBodies.Rigidbody>();
-            if(rb != null)
-            {
-                hasRB = true;
-            }
+            rb = attachee.FindComponent<Main.Component.Physics.RigidBodies.Rigidbody>();           
+            hasRB = rb != null;
         }
 
         abstract public float GetLeft(); // min x

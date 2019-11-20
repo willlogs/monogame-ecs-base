@@ -12,7 +12,10 @@ namespace Main.Component.Physics.Colliders
         private float _radius;
 
         // Constructor
-        public CircleCollider(Entity.Entity attachee) : base(attachee) { }
+        public CircleCollider(Entity.Entity attachee, float radius) : base(attachee) 
+        {
+            _radius = radius;
+        }
 
         // Public Functions
         public override Vector2 GetCenter()
