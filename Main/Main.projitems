@@ -10,8 +10,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Component\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\IVDebuggable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\Colliders\CircleCollider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\Colliders\Collider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\Colliders\RectCollider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Component\Physics\RigidBodies\Rigidbody.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Component\Rendering\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Component\Transform\Transform2D.cs" />

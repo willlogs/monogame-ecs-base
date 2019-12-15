@@ -17,6 +17,7 @@ namespace Main.Scene
         public void Update(GameTime gt)
         {
             CallEntitiesUpdates(gt);
+            CallCSUpdate(gt);
         }
 
         public Entity.Entity AddEntity(Main.Entity.Entity entity)
@@ -29,12 +30,18 @@ namespace Main.Scene
         {
             entities.Remove(entity);
         }
+
         private void CallEntitiesUpdates(GameTime gt)
         {
             foreach (Entity.Entity entt in entities)
             {
                 entt.Update(gt);
             }
+        }
+
+        private void CallCSUpdate(GameTime gt)
+        {
+            Main.Systems.ColiderSystem.CS.Update(gt);
         }
     }
 }

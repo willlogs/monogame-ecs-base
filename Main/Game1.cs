@@ -54,12 +54,18 @@ namespace Main
         {
             Texture2D balltxt = Content.Load<Texture2D>("ball");
             curScene = new Scene.Scene();
+
+            // =================================================
+            // =================================================
+            // ================Adding a ball====================
+            // =================================================
+            // =================================================
             Entity.Entity ent =
                 curScene.AddEntity(
                     new Entity.Entity(
                         Vector2.Zero,
                         0.1f,
-                        name: "new object",
+                        name: "ball1",
                         tag: 0
                     )
                 );
@@ -81,8 +87,77 @@ namespace Main
             ent.AddComponent(
                 new Component.Physics.Colliders.CircleCollider(
                     ent,
-                    1f
+                    35f,
+                    Vector2.Zero
                 )    
+            );
+
+            // =================================================
+            // =================================================
+            // ================Adding a ball====================
+            // =================================================
+            // =================================================
+            Entity.Entity ent1 =
+                curScene.AddEntity(
+                    new Entity.Entity(
+                        new Vector2(0, 400),
+                        0.1f,
+                        name: "ball2",
+                        tag: 0
+                    )
+                );
+
+            ent1.AddComponent(
+                new Component.Rendering.Sprite(
+                    balltxt,
+                    ent1,
+                    index: 0
+                )
+            );
+
+            ent1.AddComponent(
+                new Component.Physics.Colliders.CircleCollider(
+                    ent1,
+                    35f,
+                    Vector2.Zero
+                )
+            );
+
+            // =================================================
+            // =================================================
+            // ================Adding a ball====================
+            // =================================================
+            // =================================================
+            Entity.Entity ent2 =
+                curScene.AddEntity(
+                    new Entity.Entity(
+                        new Vector2(0, 250),
+                        0.1f,
+                        name: "ball2",
+                        tag: 0
+                    )
+                );
+
+            ent2.AddComponent(
+                new Component.Rendering.Sprite(
+                    balltxt,
+                    ent2,
+                    index: 0
+                )
+            );
+
+            ent2.AddComponent(
+                new Component.Physics.RigidBodies.Rigidbody(
+                    ent2
+                )
+            );
+
+            ent2.AddComponent(
+                new Component.Physics.Colliders.CircleCollider(
+                    ent2,
+                    35f,
+                    Vector2.Zero
+                )
             );
         }
 
